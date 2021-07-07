@@ -5,12 +5,15 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import styles from './assets/styles/index.js';
 
 import Buttons from './components/Buttons.js';
+import Main from './components/Main.js';
+import Header from './components/Header.js';
 
 export default function App(props) {
   return (
     <View style={styles.container}>
+      <Header />
       <Text>Hello ChrisJacked</Text>
-      <Image source={require("./assets/chicken.jpeg")} style={styles.main}/>
+      <Main />
       <Buttons />
       <StatusBar style="auto" />
     </View>
