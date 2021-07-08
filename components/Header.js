@@ -5,6 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 export default function Header() {
   return (
     <View>
+
       <Button title={"herro"}/>
     </View>
   );
