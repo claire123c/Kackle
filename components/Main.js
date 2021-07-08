@@ -9,10 +9,12 @@ export default function Main() {
   const [ foodImages ] = useState(sampleImages)
 
   const onSwipeRight = () => {
+    //yes
     alert('right!')
   };
 
   const onSwipeLeft = () => {
+    //no
     alert('left!')
   };
 
