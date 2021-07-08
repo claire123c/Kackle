@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 import { ListItem } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
 
-export default function Header() {
+export default function List() {
   return (
     <View>
       <ListItem>
