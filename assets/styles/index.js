@@ -12,6 +12,14 @@ const HEART_COLOR = '#FF2D55';
 const DIMENSION_WIDTH = Dimensions.get("window").width;
 const DIMENSION_HEIGHT = Dimensions.get("window").height;
 
+const FONTSIZE = {
+  XS: 6,
+  S: 12,
+  M: 24,
+  L: 36,
+  XL: 48,
+};
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -25,10 +33,17 @@ export default StyleSheet.create({
     borderRadius: 20,
   },
   x: {
-    color: SECONDARY_COLOR
+    color: SECONDARY_COLOR,
+    fontSize: FONTSIZE.M,
   },
   like: {
     color: HEART_COLOR,
+    fontSize: FONTSIZE.M,
+  },
+  drumstick: {
+    color: SECONDARY_COLOR,
+    marginRight: 10,
+    fontSize: FONTSIZE.M,
   }
 });
 
