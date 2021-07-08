@@ -6,20 +6,17 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from '../assets/styles/index.js';
 import Home from '../screens/Home.js';
 import Recs from '../screens/Recs.js';
+import Settings from '../screens/Settings.js';
 
 const Stack = createStackNavigator()
-// const homeOptions = () => {
-//   headerRight: ({ navigation }) => (
-//     <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick}/>
-//   )
-// };
 
 export default function MainStackNavigator() {
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Kackle' component={Home} />
         <Stack.Screen name='Recs' component={Recs} />
+        <Stack.Screen name='Settings' component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   )

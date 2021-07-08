@@ -44,6 +44,11 @@ export default StyleSheet.create({
     color: SECONDARY_COLOR,
     marginRight: 10,
     fontSize: FONTSIZE.M,
+  },
+  settings: {
+    color: SECONDARY_COLOR,
+    marginLeft: 10,
+    fontSize: FONTSIZE.M,
   }
 });
 
