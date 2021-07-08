@@ -10,7 +10,8 @@ export default function Buttons() {
   return (
     <View>
       <Button buttonStyle={styles.button} title={<Feather name="x" style={styles.x} />}/>
-      <FontAwesome name="heart" style={styles.like}/>
+      <Button buttonStyle={styles.button} title={<FontAwesome name="heart" style={styles.like}/>}/>
+
     </View>
   );
 }
