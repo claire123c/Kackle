@@ -25,9 +25,9 @@ export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
   const [location, setLocation] = useState('New York');
 
-  const getBusinesses = () => {
+  const getBusinesses = (offset = 0) => {
     $.ajax({
-      url: `https://api.yelp.com/v3/businesses/search?location=${location}`,
+      url: `https://api.yelp.com/v3/businesses/search?location=${location}&offset=${offset}`,
       type: 'GET',
       dataType: 'json',
       headers: {
@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
   }
 
   useEffect(() => {
-    // getBusinesses();
+    getBusinesses();
   }, [])
 
   useLayoutEffect(() => {
@@ -61,7 +61,7 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Restaurant Name</Text>
-      <Main businesses={businesses}/>
+      <Main businesses={businesses} getBusinesses={getBusinesses}/>
       <Buttons />
       <StatusBar style="auto" />
     </View>

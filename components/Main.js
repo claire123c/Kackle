@@ -4,36 +4,60 @@ import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 
-export default function Main({ businesses }) {
+export default function Main({ businesses, getBusinesses }) {
   const sampleImages = [require("../assets/chicken.jpeg"), require("../assets/icon.png") ]
   const [foodImages, setFoodImages] = useState(businesses.businesses)
-  const imageIndex = 0;
-  const [currentImage, setCurrentImage] = useState(foodImages[0].image_url);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState(foodImages[imageIndex].image_url);
+  const [offset, setOffset] = useState(0);
+
+  console.log(businesses);
 
   useEffect(() => {
-    setFoodImages(businesses.businesses)
+    console.log(businesses, 'effect');
+    console.log()
+    setFoodImages(businesses.businesses);
+    setImageIndex(0);
+    setCurrentImage(foodImages[0].image_url);
   }, [businesses])
 
-  console.log(currentImage);
+  useEffect(() => {
+    setCurrentImage(foodImages[0].image_url)
+  }, [foodImages])
 
   const nextImage = () => {
     //last image?
-    setCurrentImage[imageIndex + 1];
+    if (imageIndex >= 2) {
+      let newOffset = offset + 20;
+      setOffset(newOffset);
+      getBusinesses(newOffset);
+    } else {
+      let index = imageIndex + 1;
+      setImageIndex(index)
+      setCurrentImage(foodImages[index].image_url);
+    }
+    console.log(imageIndex);
+    console.log(foodImages[imageIndex].image_url);
+
   }
 
   const onSwipeRight = () => {
     //yes
     nextImage();
-    alert('right!')
   };
 
   const onSwipeLeft = () => {
     //no
-    alert('left!')
+    nextImage();
+  };
+
+  const config = {
+    velocityThreshold: 0.2,
+    directionalOffsetThreshold: 90
   };
 
   return (
-    <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}>
+    <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
        <Image source={currentImage} style={styles.main}/>
     </GestureRecognizer>
   );
