@@ -6,8 +6,9 @@ const SECONDARY_COLOR = '#424242';
 const BACKGROUND_COLOR = '#fff';
 const TEXT_COLOR = '#FFFFFF';
 
-const X_COLOR = ''
-const HEART_COLOR = '#FF2D55';
+const X_COLOR = '#FF2D55';
+const HEART_COLOR = '#3b7';
+const SUPERLIKE = '#3498db';
 const BUTTON_OUTLINE = '#eee';
 const BUTTON_SHADOW = 'rgba(0, 0, 0, 0.05)';
 
@@ -15,8 +16,8 @@ const DIMENSION_WIDTH = Dimensions.get("window").width;
 const DIMENSION_HEIGHT = Dimensions.get("window").height;
 
 const FONTSIZE = {
-  XS: 6,
-  S: 12,
+  XS: 12,
+  S: 18,
   SM: 20,
   M: 24,
   L: 36,
@@ -30,15 +31,19 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   main: {
     height: 400,
     width: 300,
     borderRadius: 20,
   },
   x: {
-    color: SECONDARY_COLOR,
+    color: X_COLOR,
     fontSize: FONTSIZE.M,
-    padding: 5,
+    padding: 10,
     borderColor: BUTTON_OUTLINE,
     borderWidth: 10,
     borderRadius: 50,
@@ -50,6 +55,18 @@ export default StyleSheet.create({
   like: {
     color: HEART_COLOR,
     fontSize: FONTSIZE.SM,
+    padding: 12,
+    borderColor: BUTTON_OUTLINE,
+    borderWidth: 10,
+    borderRadius: 50,
+    shadowOffset: { width: 0, height: 1},
+    shadowRadius: 1,
+    shadowColor: BUTTON_SHADOW,
+    elevation: 5,
+  },
+  star: {
+    color: SUPERLIKE,
+    fontSize: FONTSIZE.S,
     padding: 7,
     borderColor: BUTTON_OUTLINE,
     borderWidth: 10,
@@ -61,7 +78,6 @@ export default StyleSheet.create({
   },
   button: {
     backgroundColor: 'clear',
-
   },
   drumstick: {
     color: SECONDARY_COLOR,
