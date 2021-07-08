@@ -26,21 +26,25 @@ export default function Home({ navigation }) {
   const [location, setLocation] = useState('New York');
 
   const getBusinesses = (offset = 0) => {
-    $.ajax({
-      url: `https://api.yelp.com/v3/businesses/search?location=${location}&offset=${offset}`,
-      type: 'GET',
-      dataType: 'json',
-      headers: {
-        Authorization: `Bearer ${Key.API_KEY}`,
-      },
-      success: (data) => {
-        console.log(data);
-        setBusinesses(data);
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    })
+    if (offset > 980) {
+      return null;
+    } else {
+      $.ajax({
+        url: `https://api.yelp.com/v3/businesses/search?location=${location}&offset=${offset}`,
+        type: 'GET',
+        dataType: 'json',
+        headers: {
+          Authorization: `Bearer ${Key.API_KEY}`,
+        },
+        success: (data) => {
+          console.log(data);
+          setBusinesses(data);
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      })
+    }
   }
 
   useEffect(() => {

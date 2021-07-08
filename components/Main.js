@@ -9,16 +9,11 @@ export default function Main({ businesses, getBusinesses }) {
   const [foodImages, setFoodImages] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentImage, setCurrentImage] = useState(foodImages[imageIndex].image_url);
-  const [offset, setOffset] = useState(0);
-
-  console.log(businesses);
+  const [offset, setOffset] = useState(960);
 
   useEffect(() => {
-    console.log(businesses, 'effect');
-    console.log()
     setFoodImages(businesses.businesses);
     setImageIndex(0);
-    setCurrentImage(foodImages[0].image_url);
   }, [businesses])
 
   useEffect(() => {
@@ -26,8 +21,7 @@ export default function Main({ businesses, getBusinesses }) {
   }, [foodImages])
 
   const nextImage = () => {
-    //last image?
-    if (imageIndex >= 2) {
+    if (imageIndex >= 19) {
       let newOffset = offset + 20;
       setOffset(newOffset);
       getBusinesses(newOffset);
