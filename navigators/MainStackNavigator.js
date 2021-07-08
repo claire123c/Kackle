@@ -8,17 +8,17 @@ import Home from '../screens/Home.js';
 import Recs from '../screens/Recs.js';
 
 const Stack = createStackNavigator()
-const homeOptions = {
-  headerRight: () => (
-    <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick}/>
-  )
-};
+// const homeOptions = () => {
+//   headerRight: ({ navigation }) => (
+//     <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick}/>
+//   )
+// };
 
 export default function MainStackNavigator() {
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home} options={homeOptions}/>
+        <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Recs' component={Recs} />
       </Stack.Navigator>
     </NavigationContainer>
