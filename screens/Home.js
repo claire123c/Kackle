@@ -13,13 +13,13 @@ import Main from '../components/Main.js';
 import Header from '../components/Header.js';
 import sampleData from '../sampleData.js';
 
-var cors_proxy = require('cors-anywhere');
+// var cors_proxy = require('cors-anywhere');
 
-$.ajaxPrefilter(function(options) {
-  if (options.crossDomain && $.support.cors) {
-      options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-  }
-});
+// $.ajaxPrefilter(function(options) {
+//   if (options.crossDomain && $.support.cors) {
+//       options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+//   }
+// });
 
 export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
@@ -63,7 +63,6 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>Restaurant Name</Text>
       <Main businesses={businesses} getBusinesses={getBusinesses}/>
       <Buttons />
       <StatusBar style="auto" />

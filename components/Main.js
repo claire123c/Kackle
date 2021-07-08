@@ -52,7 +52,7 @@ export default function Main({ businesses, getBusinesses }) {
 
   return (
     <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
-       <Image source={currentImage} style={styles.main}/>
+       <Image source={{uri: currentImage}} style={styles.main}/>
     </GestureRecognizer>
   );
 }
