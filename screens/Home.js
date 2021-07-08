@@ -37,7 +37,6 @@ export default function Home({ navigation }) {
           Authorization: `Bearer ${Key.API_KEY}`,
         },
         success: (data) => {
-          console.log(data);
           setBusinesses(data);
         },
         error: (error) => {
@@ -48,7 +47,7 @@ export default function Home({ navigation }) {
   }
 
   useEffect(() => {
-    getBusinesses();
+    //getBusinesses();
   }, [])
 
   useLayoutEffect(() => {

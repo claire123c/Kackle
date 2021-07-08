@@ -35,10 +35,17 @@ export default StyleSheet.create({
   x: {
     color: SECONDARY_COLOR,
     fontSize: FONTSIZE.M,
+    borderColor: 'black',
+    borderWidth: 10,
+    borderRadius: 50,
   },
   like: {
     color: HEART_COLOR,
     fontSize: FONTSIZE.M,
+  },
+  button: {
+    backgroundColor: 'clear',
+
   },
   drumstick: {
     color: SECONDARY_COLOR,
