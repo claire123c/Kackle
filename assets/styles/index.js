@@ -77,7 +77,7 @@ export default StyleSheet.create({
     elevation: 5,
   },
   button: {
-    // backgroundColor: 'clear',
+    backgroundColor: BACKGROUND_COLOR,
   },
   drumstick: {
     color: SECONDARY_COLOR,
