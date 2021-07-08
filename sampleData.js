@@ -1,4 +1,4 @@
-export default = {
+const sampleData = {
   "businesses": [
       {
           "id": "H4jJ7XB3CetIr1pg56CczQ",
@@ -876,3 +876,5 @@ export default = {
       }
   }
 }
+
+export default sampleData;

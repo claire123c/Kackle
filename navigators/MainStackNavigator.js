@@ -11,10 +11,11 @@ import Settings from '../screens/Settings.js';
 const Stack = createStackNavigator()
 
 export default function MainStackNavigator() {
+
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        <Stack.Screen name='Kackle' component={Home} />
+        <Stack.Screen name='Kackle' component={Home}/>
         <Stack.Screen name='Recs' component={Recs} />
         <Stack.Screen name='Settings' component={Settings} />
       </Stack.Navigator>
