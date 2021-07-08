@@ -10,8 +10,7 @@ import Header from '../components/Header.js';
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Header />
-      <Text>Hello ChrisJacked</Text>
+      <Text>Restaurant Name</Text>
       <Main />
       <Buttons />
       <StatusBar style="auto" />

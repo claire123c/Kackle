@@ -8,7 +8,7 @@ import { Feather } from '@expo/vector-icons';
 export default function Buttons() {
   return (
     <View>
-      <Feather name="x" size={24} color="black" />
+      <Feather name="x" size={24} style={styles.x} />
       <FontAwesome name="heart" size={24} style={styles.like}/>
     </View>
   );
