@@ -7,7 +7,7 @@ import Buttons from '../components/Buttons.js';
 import Main from '../components/Main.js';
 import Header from '../components/Header.js';
 
-export default function Home() {
+export default function Home( {navigation}) {
   return (
     <View style={styles.container}>
       <Text>Restaurant Name</Text>
