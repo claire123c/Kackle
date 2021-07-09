@@ -44,9 +44,21 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   mainImage: {
-    height: 400,
-    width: 300,
-    borderRadius: 20,
+    height: DIMENSION_HEIGHT - 200,
+    width: DIMENSION_WIDTH - 70,
+    borderRadius: 15,
+  },
+  card: {
+    height: DIMENSION_HEIGHT - 300,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: WHITE,
+    borderRadius: 5,
+    shadowColor: BLACK,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
   x: {
     backgroundColor: WHITE,
