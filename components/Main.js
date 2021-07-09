@@ -45,10 +45,10 @@ export default function Main({ businesses, getBusinesses }) {
     nextImage();
   };
 
-  const config = {
-    velocityThreshold: 0.2,
-    directionalOffsetThreshold: 90
-  };
+  // const config = {
+  //   velocityThreshold: 0.2,
+  //   directionalOffsetThreshold: 90
+  // };
 
   return (
     <View style={styles.container}>

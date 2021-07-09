@@ -49,7 +49,6 @@ export default StyleSheet.create({
     borderRadius: 5,
   },
   card: {
-    height: DIMENSION_HEIGHT - 300,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: WHITE,
@@ -74,7 +73,7 @@ export default StyleSheet.create({
     padding: 2,
   },
   button: {
-    backgroundColor: BACKGROUND_COLOR,
+    backgroundColor: 'rgba(0,0,0,0.0)',
   },
   drumstick: {
     color: SECONDARY_COLOR,
