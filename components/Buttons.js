@@ -13,7 +13,7 @@ export default function Buttons({ onSwipeLeft, onSwipeRight }) {
     <View style={styles.buttonsContainer}>
       <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon={require('../assets/close.png')} style={styles.x} color='#FF2D55' />}/>
       <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB small icon={require('../assets/star.png')} style={styles.star} color='#3498db' />}/>
-      <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon='heart' style={styles.like} color='#3b7' />}/>
+      <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon={require('../assets/heart.png')} style={styles.like} color='#3b7' />} size={35}/>
     </View>
   );
 }
