@@ -7,12 +7,12 @@ import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function Buttons() {
+export default function Buttons({ onSwipeLeft, onSwipeRight }) {
   return (
     <View style={styles.buttonContainer}>
-      <Button buttonStyle={styles.button} title={<Feather name="x" style={styles.x} />}/>
+      <Button onPress={onSwipeLeft} buttonStyle={styles.button} title={<Feather name="x" style={styles.x} />}/>
       <Button buttonStyle={styles.button} title={<AntDesign name="star" style={styles.star} />}/>
-      <Button buttonStyle={styles.button} title={<FontAwesome name="heart" style={styles.like}/>}/>
+      <Button buttonStyle={styles.button} title={<FontAwesome name="heart" style={styles.like} onPress={onSwipeRight}/>}/>
 
     </View>
   );

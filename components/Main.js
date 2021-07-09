@@ -54,7 +54,7 @@ export default function Main({ businesses, getBusinesses }) {
       <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
         <Image source={{uri: currentImage}} style={styles.mainImage}/>
       </GestureRecognizer>
-      <Buttons />
+      <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}/>
     </View>
   );
 }
