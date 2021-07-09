@@ -56,6 +56,7 @@ export default StyleSheet.create({
   },
   star: {
     backgroundColor: WHITE,
+    padding: 2,
   },
   button: {
     backgroundColor: BACKGROUND_COLOR,
