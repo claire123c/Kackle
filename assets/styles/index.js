@@ -35,7 +35,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonContainer: {
+  buttonsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -49,12 +49,7 @@ export default StyleSheet.create({
     borderRadius: 20,
   },
   x: {
-    color: X_COLOR,
-    fontSize: FONTSIZE.M,
-    padding: 10,
-    borderColor: BUTTON_OUTLINE,
-    borderWidth: 10,
-    borderRadius: 33,
+    backgroundColor: WHITE,
   },
   like: {
     color: HEART_COLOR,
