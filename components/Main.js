@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import db from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
@@ -36,6 +37,19 @@ export default function Main({ businesses, getBusinesses }) {
 
   const onSwipeRight = () => {
     //yes
+    const { id, name, image_url, state, phone, price, rating, url } = currentFood;
+    const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    db.transaction(
+      (tx) => {
+        tx.executeSql(query, [id, name, image_url, state, phone, price, rating, url, 'LIKE'])
+      },
+      (error) => {
+        console.error(error);
+      },
+      (success) => {
+        console.log(success);
+      }
+    );
     nextImage();
   };
 
