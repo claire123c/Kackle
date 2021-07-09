@@ -9,19 +9,19 @@ import Card from './Card.js';
 
 export default function Main({ businesses, getBusinesses }) {
   const sampleImages = [require("../assets/chicken.jpeg"), require("../assets/icon.png") ]
-  const [foodImages, setFoodImages] = useState(businesses.businesses)
+  const [foodInfo, setFoodInfo] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
-  const [currentImage, setCurrentImage] = useState(foodImages[imageIndex].image_url);
+  const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    setFoodImages(businesses.businesses);
+    setFoodInfo(businesses.businesses);
     setImageIndex(0);
   }, [businesses])
 
   useEffect(() => {
-    setCurrentImage(foodImages[0].image_url)
-  }, [foodImages])
+    setCurrentFood(foodInfo[0])
+  }, [foodInfo])
 
   const nextImage = () => {
     if (imageIndex >= 19) {
@@ -31,7 +31,7 @@ export default function Main({ businesses, getBusinesses }) {
     } else {
       let index = imageIndex + 1;
       setImageIndex(index)
-      setCurrentImage(foodImages[index].image_url);
+      setCurrentFood(foodInfo[index].image_url);
     }
   }
 
@@ -53,7 +53,7 @@ export default function Main({ businesses, getBusinesses }) {
   return (
     <View style={styles.container}>
       {/* <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}> */}
-      <Card currentImage={currentImage}/>
+      <Card currentImage={currentFood.image_url}/>
       {/* </GestureRecognizer> */}
       <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}/>
     </View>

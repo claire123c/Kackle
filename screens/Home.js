@@ -10,16 +10,7 @@ import Key from '../config.js';
 import styles from '../assets/styles/index.js';
 import Buttons from '../components/Buttons.js';
 import Main from '../components/Main.js';
-import Header from '../components/Header.js';
 import sampleData from '../sampleData.js';
-
-// var cors_proxy = require('cors-anywhere');
-
-// $.ajaxPrefilter(function(options) {
-//   if (options.crossDomain && $.support.cors) {
-//       options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-//   }
-// });
 
 export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
