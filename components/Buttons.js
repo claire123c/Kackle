@@ -3,9 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import styles from '../assets/styles/index.js';
 import { Button, Icon } from 'react-native-elements';
 import { FAB } from 'react-native-paper';
-import { FontAwesome } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
 
 
 export default function Buttons({ onSwipeLeft, onSwipeRight }) {

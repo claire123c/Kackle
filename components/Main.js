@@ -4,6 +4,7 @@ import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import Buttons from './Buttons.js';
+import Card from './Card.js';
 
 
 export default function Main({ businesses, getBusinesses }) {
@@ -50,10 +51,10 @@ export default function Main({ businesses, getBusinesses }) {
   };
 
   return (
-    <View style={styles.homeContainer}>
-      <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
-        <Image source={{uri: currentImage}} style={styles.mainImage}/>
-      </GestureRecognizer>
+    <View style={styles.container}>
+      {/* <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}> */}
+      <Card currentImage={currentImage}/>
+      {/* </GestureRecognizer> */}
       <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}/>
     </View>
   );

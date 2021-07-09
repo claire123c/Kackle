@@ -46,7 +46,7 @@ export default StyleSheet.create({
   mainImage: {
     height: DIMENSION_HEIGHT - 200,
     width: DIMENSION_WIDTH - 70,
-    borderRadius: 15,
+    borderRadius: 5,
   },
   card: {
     height: DIMENSION_HEIGHT - 300,
@@ -59,6 +59,9 @@ export default StyleSheet.create({
       width: 0,
       height: 2,
     },
+    shadowRadius: 6,
+    shadowOpacity: 0.3,
+    elevation: 2,
   },
   x: {
     backgroundColor: WHITE,
