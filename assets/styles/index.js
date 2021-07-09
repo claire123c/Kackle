@@ -52,20 +52,10 @@ export default StyleSheet.create({
     backgroundColor: WHITE,
   },
   like: {
-    color: HEART_COLOR,
-    fontSize: FONTSIZE.SM,
-    padding: 12,
-    borderColor: BUTTON_OUTLINE,
-    borderWidth: 10,
-    borderRadius: 33,
+    backgroundColor: WHITE,
   },
   star: {
-    color: SUPERLIKE,
-    fontSize: FONTSIZE.S,
-    padding: 7,
-    borderColor: BUTTON_OUTLINE,
-    borderWidth: 10,
-    borderRadius: 27,
+    backgroundColor: WHITE,
   },
   button: {
     backgroundColor: BACKGROUND_COLOR,

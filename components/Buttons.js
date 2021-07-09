@@ -11,16 +11,9 @@ import { AntDesign } from '@expo/vector-icons';
 export default function Buttons({ onSwipeLeft, onSwipeRight }) {
   return (
     <View style={styles.buttonsContainer}>
-      {/* <FAB settings={{
-          icon: props => <Feather name="x" {...props} />,
-        }}/> */}
-      <Button buttonStyle={styles.button} title={<FAB icon='heart' style={styles.x} color='#3b7' />}/>
-
-{/*
-      <Button onPress={onSwipeLeft} buttonStyle={styles.button} containerStyle={styles.buttonContainer} raised={true} title={<Feather name="x" style={styles.x} />}/>
-      <Button buttonStyle={styles.button} title={<AntDesign name="star" style={styles.star} />}/>
-      <Button buttonStyle={styles.button} title={<FontAwesome name="heart" style={styles.like} onPress={onSwipeRight}/>}/> */}
-
+       <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon={require('../assets/close.png')} style={styles.x} color='#FF2D55' />}/>
+      <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon={require('../assets/star.png')} style={styles.star} color='#3498db' />}/>
+      <Button onPress={onSwipeRight} buttonStyle={styles.button} title={<FAB icon='heart' style={styles.like} color='#3b7' />}/>
     </View>
   );
 }
