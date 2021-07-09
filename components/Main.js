@@ -5,10 +5,9 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import Buttons from './Buttons.js';
 import Card from './Card.js';
-
+import OverlayLabel from './OverlayLabel.js';
 
 export default function Main({ businesses, getBusinesses }) {
-  const sampleImages = [require("../assets/chicken.jpeg"), require("../assets/icon.png") ]
   const [foodInfo, setFoodInfo] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
@@ -31,7 +30,7 @@ export default function Main({ businesses, getBusinesses }) {
     } else {
       let index = imageIndex + 1;
       setImageIndex(index)
-      setCurrentFood(foodInfo[index].image_url);
+      setCurrentFood(foodInfo[index]);
     }
   }
 
@@ -45,16 +44,16 @@ export default function Main({ businesses, getBusinesses }) {
     nextImage();
   };
 
-  // const config = {
-  //   velocityThreshold: 0.2,
-  //   directionalOffsetThreshold: 90
-  // };
+  const config = {
+    velocityThreshold: 0.2,
+    directionalOffsetThreshold: 90
+  };
 
   return (
     <View style={styles.container}>
-      {/* <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}> */}
-      <Card currentImage={currentFood.image_url}/>
-      {/* </GestureRecognizer> */}
+      <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
+      <Card currentFood={currentFood}/>
+      </GestureRecognizer>
       <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}/>
     </View>
   );
