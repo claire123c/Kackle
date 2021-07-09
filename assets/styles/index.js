@@ -5,6 +5,10 @@ const PRIMARY_COLOR = '#FF2D55';
 const SECONDARY_COLOR = '#424242';
 const BACKGROUND_COLOR = '#fff';
 const TEXT_COLOR = '#FFFFFF';
+const WHITE = "#FFFFFF";
+const GRAY = "#757E90";
+const DARK_GRAY = "#363636";
+const BLACK = "#000000";
 
 const X_COLOR = '#FF2D55';
 const HEART_COLOR = '#3b7';
@@ -35,7 +39,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  main: {
+  homeContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mainImage: {
     height: 400,
     width: 300,
     borderRadius: 20,
@@ -46,11 +54,7 @@ export default StyleSheet.create({
     padding: 10,
     borderColor: BUTTON_OUTLINE,
     borderWidth: 10,
-    borderRadius: 50,
-    shadowOffset: { width: 0, height: 1},
-    shadowRadius: 1,
-    shadowColor: BUTTON_SHADOW,
-    elevation: 5,
+    borderRadius: 33,
   },
   like: {
     color: HEART_COLOR,
@@ -58,11 +62,7 @@ export default StyleSheet.create({
     padding: 12,
     borderColor: BUTTON_OUTLINE,
     borderWidth: 10,
-    borderRadius: 50,
-    shadowOffset: { width: 0, height: 1},
-    shadowRadius: 1,
-    shadowColor: BUTTON_SHADOW,
-    elevation: 5,
+    borderRadius: 33,
   },
   star: {
     color: SUPERLIKE,
@@ -70,11 +70,7 @@ export default StyleSheet.create({
     padding: 7,
     borderColor: BUTTON_OUTLINE,
     borderWidth: 10,
-    borderRadius: 50,
-    shadowOffset: { width: 0, height: 1},
-    shadowRadius: 1,
-    shadowColor: BUTTON_SHADOW,
-    elevation: 5,
+    borderRadius: 27,
   },
   button: {
     backgroundColor: BACKGROUND_COLOR,

@@ -3,13 +3,15 @@ import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
+import Buttons from './Buttons.js';
+
 
 export default function Main({ businesses, getBusinesses }) {
   const sampleImages = [require("../assets/chicken.jpeg"), require("../assets/icon.png") ]
   const [foodImages, setFoodImages] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentImage, setCurrentImage] = useState(foodImages[imageIndex].image_url);
-  const [offset, setOffset] = useState(960);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     setFoodImages(businesses.businesses);
@@ -30,9 +32,6 @@ export default function Main({ businesses, getBusinesses }) {
       setImageIndex(index)
       setCurrentImage(foodImages[index].image_url);
     }
-    console.log(imageIndex);
-    console.log(foodImages[imageIndex].image_url);
-
   }
 
   const onSwipeRight = () => {
@@ -51,8 +50,11 @@ export default function Main({ businesses, getBusinesses }) {
   };
 
   return (
-    <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
-       <Image source={{uri: currentImage}} style={styles.main}/>
-    </GestureRecognizer>
+    <View style={styles.homeContainer}>
+      <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
+        <Image source={{uri: currentImage}} style={styles.mainImage}/>
+      </GestureRecognizer>
+      <Buttons />
+    </View>
   );
 }

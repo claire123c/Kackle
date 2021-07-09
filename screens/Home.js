@@ -64,7 +64,6 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Main businesses={businesses} getBusinesses={getBusinesses}/>
-      <Buttons />
       <StatusBar style="auto" />
     </View>
   );
