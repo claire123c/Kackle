@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
 
-export default function Description({ name, rating }) {
+export default function Location() {
   return (
     <View>
-      <Text>{name}</Text>
+      <Text>Currently Looking in:</Text>
     </View>
   );
 }
