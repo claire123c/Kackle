@@ -1,5 +1,7 @@
 import {Database} from "./database";
 
+// import * as SQLite from 'expo-sqlite';
+// const db = SQLite.openDatabase('db.restaurants');
 const db = new Database("restaurants");
 
 const tableQuery = `CREATE TABLE IF NOT EXISTS restaurants (
@@ -14,22 +16,36 @@ const tableQuery = `CREATE TABLE IF NOT EXISTS restaurants (
   status varchar(30)
 )`;
 
-const createTable =  async () => {
+const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+const data = ['id', 'name', 'image_url', 'state', 'phone', 'price', 'rating', 'url', 'LIKE'];
+
+const dbQuery = async (query, params = []) => {
   let res;
-  await db.transaction(async connection => {
-    res = await connection.execute(tableQuery);
-  });
+  try {
+    await db.transaction(async connection => {
+      res = await connection.execute(query, params);
+    });
+  } catch(error) {
+    return error;
+  }
   return res;
 }
 
-const random = async () => {
-  let restaurants = await createTable();
-  console.log(restaurants, 'main');
+// const dbQuery2 = (query, params = []) => {
+//   db.transaction(tx => {
+//     tx.executeSql(query, params)
+//   }, (error) => {
+//     console.error(error)
+//   }, () => {
+//     console.log('success')
+//   })
+// }
 
+const createTable = async () => {
+  await dbQuery(tableQuery, data);
 }
-random();
 
-// let restaurants = createTable();
-// console.log(restaurants, 'main');
+createTable();
+// dbQuery2(query);
 
-export default db;
+export default dbQuery;

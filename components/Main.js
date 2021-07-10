@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import executeQuery from '../db/index.js';
+import dbQuery from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
@@ -13,7 +13,6 @@ export default function Main({ businesses, getBusinesses }) {
   const [foodInfo, setFoodInfo] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
-
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function Main({ businesses, getBusinesses }) {
   }, [foodInfo])
 
   const nextImage = () => {
-    if (imageIndex >= 2) {
+    if (imageIndex >= 19) {
       let newOffset = offset + 20;
       setOffset(newOffset);
       getBusinesses(newOffset);
@@ -37,19 +36,25 @@ export default function Main({ businesses, getBusinesses }) {
     }
   }
 
-  const onSwipeRight = async () => {
-    //yes
-    // const { id, name, image_url, state, phone, price, rating, url } = currentFood;
-    // const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-    // const data = [id, name, image_url, state, phone, price, rating, url, 'LIKE'];
-    // const response = await executeQuery(query, data);
-    // console.log(response);
+  const addFood = async (status) => {
+    const { id, name, image_url, state, phone, price, rating, url } = currentFood;
+    const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const data = [id, name, image_url, state, phone, price, rating, url, status];
+    const response = await dbQuery(query, data);
+    console.log(response);
+  }
 
+  const onSwipeRight = async () => {
+    await addFood('LIKE');
+    nextImage();
+  };
+
+  const superLiked = async () => {
+    await addFood('SUPERLIKE');
     nextImage();
   };
 
   const onSwipeLeft = () => {
-    //no
     nextImage();
   };
 
@@ -64,7 +69,7 @@ export default function Main({ businesses, getBusinesses }) {
       <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
       <Card currentFood={currentFood}/>
       </GestureRecognizer>
-      <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft}/>
+      <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} superLiked={superLiked}/>
     </View>
   );
 }
