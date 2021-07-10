@@ -26,7 +26,6 @@ export default function Main({ businesses, getBusinesses }) {
 
   const nextImage = () => {
     if (imageIndex >= 2) {
-    console.log('ya', imageIndex);
       let newOffset = offset + 20;
       setOffset(newOffset);
       getBusinesses(newOffset);

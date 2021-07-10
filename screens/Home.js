@@ -25,7 +25,8 @@ export default function Home({ navigation }) {
             Authorization: `Bearer ${Key.API_KEY}`,
           },
         });
-        setBusinesses(response);
+        let json = await response.json();
+        setBusinesses(json);
       } catch (error) {
         console.error('Error', error);
       }
