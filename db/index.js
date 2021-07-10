@@ -1,20 +1,25 @@
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase({
-  name: 'Restaurants',
-  location: 'default',
-});
+const db = SQLite.openDatabase('db.restaurants');
 
-const executeQuery = (sql, params = []) => new Promise((resolve, reject) => {
+const executeQuery = async (sql, params = []) => {
+  return new Promise((resolve, reject) => {
   db.transaction((tx) => {
-    tx.executeSql(sql, params, (tx, results) => {
-      resolve(results);
-    },
-    (error) => {
-      reject(error);
+    return new Promise((res, rej) => {
+      tx.executeSql(sql, params, (tx, results) => {
+        console.log('test', results);
+        resolve(results);
+      },
+      (tx, error) => {
+        reject(error);
+      });
     });
+  }, (err) => {
+    console.log('transaction', err);
+  }, () => {
+    console.log('success');
   });
-});
+})};
 
 const tableQuery = `CREATE TABLE IF NOT EXISTS restaurants (
   id int PRIMARY KEY,
@@ -28,13 +33,19 @@ const tableQuery = `CREATE TABLE IF NOT EXISTS restaurants (
   status varchar(30)
 )`;
 
-const createTable = async () => {
-  const table = await executeQuery(tableQuery, []);
+const queryTest = `CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)`;
 
-  return table;
+const createTable = async () => {
+  try {
+    var table = await executeQuery(queryTest, []);
+    return table;
+
+  } catch (e) {
+    console.warn(e);
+  }
 }
 
 let restaurants = createTable();
-console.log(restaurants);
+console.log(restaurants, 'main');
 
-export default db;
+export default executeQuery;

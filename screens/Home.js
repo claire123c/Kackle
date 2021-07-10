@@ -3,9 +3,7 @@ import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { Text, View, Button } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import $ from 'jquery';
 import Key from '../config.js';
-
 
 import styles from '../assets/styles/index.js';
 import Buttons from '../components/Buttons.js';
@@ -16,24 +14,21 @@ export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
   const [location, setLocation] = useState('New York');
 
-  const getBusinesses = (offset = 0) => {
+  const getBusinesses = async (offset = 0) => {
     if (offset > 980) {
       return null;
     } else {
-      $.ajax({
-        url: `https://api.yelp.com/v3/businesses/search?location=${location}&offset=${offset}`,
-        type: 'GET',
-        dataType: 'json',
-        headers: {
-          Authorization: `Bearer ${Key.API_KEY}`,
-        },
-        success: (data) => {
-          setBusinesses(data);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      })
+      try {
+        let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=${location}&offset=${offset}`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${Key.API_KEY}`,
+          },
+        });
+        setBusinesses(response);
+      } catch (error) {
+        console.error('Error', error);
+      }
     }
   }
 

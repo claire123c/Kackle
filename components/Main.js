@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import db from '../db/index.js';
+import executeQuery from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
@@ -12,6 +12,7 @@ export default function Main({ businesses, getBusinesses }) {
   const [foodInfo, setFoodInfo] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
+
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -24,7 +25,8 @@ export default function Main({ businesses, getBusinesses }) {
   }, [foodInfo])
 
   const nextImage = () => {
-    if (imageIndex >= 19) {
+    if (imageIndex >= 2) {
+    console.log('ya', imageIndex);
       let newOffset = offset + 20;
       setOffset(newOffset);
       getBusinesses(newOffset);
@@ -35,21 +37,14 @@ export default function Main({ businesses, getBusinesses }) {
     }
   }
 
-  const onSwipeRight = () => {
+  const onSwipeRight = async () => {
     //yes
-    const { id, name, image_url, state, phone, price, rating, url } = currentFood;
-    const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-    db.transaction(
-      (tx) => {
-        tx.executeSql(query, [id, name, image_url, state, phone, price, rating, url, 'LIKE'])
-      },
-      (error) => {
-        console.error(error);
-      },
-      (success) => {
-        console.log(success);
-      }
-    );
+    // const { id, name, image_url, state, phone, price, rating, url } = currentFood;
+    // const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    // const data = [id, name, image_url, state, phone, price, rating, url, 'LIKE'];
+    // const response = await executeQuery(query, data);
+    // console.log(response);
+
     nextImage();
   };
 
