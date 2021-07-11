@@ -116,6 +116,14 @@ export default StyleSheet.create({
   kackleText: {
     fontSize: FONTSIZE.S,
     color: PRIMARY_COLOR
+  },
+  searchBar: {
+    backgroundColor: BACKGROUND_COLOR,
+    borderColor: BACKGROUND_COLOR,
+    borderWidth: 0,
+  },
+  searchBarInput: {
+    height: 30,
   }
 });
 

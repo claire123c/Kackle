@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Button } from 'react-native';
-import { ListItem } from 'react-native-elements'
+import { ListItem, Avatar } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
 import dbQuery from '../db/index.js';
 
@@ -21,8 +21,17 @@ export default function List() {
   }
 
   const displayLikes = (likesArr) => {
-    console.log(likesArr)
     return likesArr.map(({ name, id }) => (
+      <ListItem key={id}>
+        <ListItem.Title>
+          {name}
+        </ListItem.Title>
+      </ListItem>
+    ))
+  }
+
+  const displaySuperLikes = (superLikesArr) => {
+    return superLikesArr.map(({ name, id }) => (
       <ListItem key={id}>
         <ListItem.Title>
           {name}
