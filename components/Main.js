@@ -9,11 +9,12 @@ import Card from './Card.js';
 import OverlayLabel from './OverlayLabel.js';
 import Location from './Location.js';
 
-export default function Main({ businesses, getBusinesses }) {
+export default function Main({ businesses, getBusinesses, location }) {
   const [foodInfo, setFoodInfo] = useState(businesses.businesses)
   const [imageIndex, setImageIndex] = useState(0);
   const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
   const [offset, setOffset] = useState(0);
+  const { location: { city, country } } = currentFood;
 
   useEffect(() => {
     setFoodInfo(businesses.businesses);
@@ -63,9 +64,11 @@ export default function Main({ businesses, getBusinesses }) {
     directionalOffsetThreshold: 90
   };
 
+  console.log(city, country);
+
   return (
     <View style={styles.container}>
-      <Location />
+      <Location city={city} country={country}/>
       <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
       <Card currentFood={currentFood}/>
       </GestureRecognizer>

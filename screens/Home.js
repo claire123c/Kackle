@@ -50,7 +50,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Main businesses={businesses} getBusinesses={getBusinesses}/>
+      <Main businesses={businesses} getBusinesses={getBusinesses} />
       <StatusBar style="auto" />
     </View>
   );

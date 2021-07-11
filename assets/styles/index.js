@@ -97,6 +97,10 @@ export default StyleSheet.create({
     fontFamily: 'Avenir',
     textAlign: 'center',
   },
+  location: {
+    fontSize: FONTSIZE.S,
+
+  }
 });
 
 
