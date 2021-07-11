@@ -12,6 +12,10 @@ import Main from '../components/Main.js';
 import sampleData from '../sampleData.js';
 import fox from '../assets/fox.png';
 
+const SCREEN1 = 'Kackle';
+const SCREEN2 = 'Future Eats';
+const SCREEN3 = 'Settings';
+
 export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
   const [location, setLocation] = useState('New York');
@@ -46,10 +50,10 @@ export default function Home({ navigation }) {
       //   // <Image source={fox} style={styles.logo}/>
       // ),
       headerRight: () => (
-        <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate('Recs')}/>
+        <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate(SCREEN2)}/>
       ),
       headerLeft: () => (
-        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate('Settings')} />
+        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate(SCREEN3)} />
         // <Ionicons name="md-settings-sharp" style={styles.settings} onPress={() => navigation.navigate('Settings')}/>
       )
     });

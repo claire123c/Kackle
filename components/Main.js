@@ -42,7 +42,6 @@ export default function Main({ businesses, getBusinesses, location }) {
     const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const data = [id, name, image_url, state, phone, price, rating, url, status];
     const response = await dbQuery(query, data);
-    console.log(response);
   }
 
   const onSwipeRight = async () => {
@@ -63,8 +62,6 @@ export default function Main({ businesses, getBusinesses, location }) {
     velocityThreshold: 0.2,
     directionalOffsetThreshold: 90
   };
-
-  console.log(city, country);
 
   return (
     <View style={styles.container}>

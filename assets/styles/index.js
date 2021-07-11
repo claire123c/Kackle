@@ -126,6 +126,9 @@ export default StyleSheet.create({
   searchBarInput: {
     height: 30,
     backgroundColor: LIGHTGRAY,
+  },
+  avatar: {
+    borderRadius: 5
   }
 });
 
