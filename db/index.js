@@ -26,7 +26,17 @@ const dbQuery = async (query, params = []) => {
       res = await connection.execute(query, params);
     });
   } catch(error) {
-    return error;
+    throw error;
+  }
+  return res;
+}
+
+const dbExecute = async (query, params = []) => {
+  let res;
+  try {
+    res = await db.execute(query, params);
+  } catch(error) {
+    throw error;
   }
   return res;
 }
@@ -48,4 +58,4 @@ const createTable = async () => {
 createTable();
 // dbQuery2(query);
 
-export default dbQuery;
+export { dbQuery, dbExecute };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import dbQuery from '../db/index.js';
+import { dbQuery, dbExecute } from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
@@ -39,22 +39,50 @@ export default function Main({ businesses, getBusinesses, location }) {
 
   const addFood = async (status) => {
     const { id, name, image_url, state, phone, price, rating, url } = currentFood;
+    const checkQuery = `SELECT * FROM restaurants WHERE id = ?`;
     const query = `INSERT INTO restaurants (id, name, image_url, state, phone, price, rating, url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const data = [id, name, image_url, state, phone, price, rating, url, status];
-    const response = await dbQuery(query, data);
+
+    let check;
+    try {
+      check = await dbQuery(checkQuery, [id]);
+    } catch(error) {
+      console.error(error);
+    }
+
+    if (check.rows.length === 0) {
+      try {
+        const response = await dbQuery(query, data);
+      } catch (error) {
+        console.error('err', error);
+      }
+    }
   }
 
   const onSwipeRight = async () => {
-    await addFood('LIKE');
+    try {
+      await addFood('LIKE');
+    } catch (error) {
+      console.error(error);
+    }
     nextImage();
   };
 
   const superLiked = async () => {
-    await addFood('SUPERLIKE');
+    try {
+      await addFood('SUPERLIKE');
+    } catch (error) {
+      console.error(error);
+    }
     nextImage();
   };
 
-  const onSwipeLeft = () => {
+  const onSwipeLeft = async () => {
+    try {
+      await addFood('DISLIKE');
+    } catch (error) {
+      console.error(error);
+    }
     nextImage();
   };
 

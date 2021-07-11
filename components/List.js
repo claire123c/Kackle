@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, Image } from 'react-native';
 import { ListItem, Avatar, Button } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
-import dbQuery from '../db/index.js';
+import { dbQuery, dbExecute } from '../db/index.js';
 import PropTypes from 'prop-types';
 
 
@@ -15,8 +15,16 @@ export default function List({ search }) {
     const queryLikes = `SELECT * FROM restaurants WHERE status = 'LIKE'`;
     const querySuperLikes = `SELECT * FROM restaurants WHERE status = 'SUPERLIKE'`;
 
-    let likeResults = await dbQuery(queryLikes);
-    let superLikeResult = await dbQuery(querySuperLikes);
+    try {
+      var likeResults = await dbExecute(queryLikes);
+    } catch (error) {
+      console.error(error);
+    }
+    try {
+      var superLikeResult = await dbExecute(querySuperLikes);
+    } catch (error) {
+      console.error(error);
+    }
 
     setLikes(likeResults.rows);
     setSuperLikes(superLikeResult.rows);
@@ -36,7 +44,7 @@ export default function List({ search }) {
     const query = `DELETE FROM restaurants WHERE id = ?`;
 
     try {
-      let result = await dbQuery(query, [id]);
+      let result = await dbExecute(query, [id]);
       getMyRestaurants();
     } catch (error) {
       console.error(error);
@@ -94,6 +102,9 @@ export default function List({ search }) {
     ))
   }
 
+  // useEffect(() => {
+  //   getMyRestaurants();
+  // }, []);
 
   useEffect(() => {
     getMyRestaurants();
