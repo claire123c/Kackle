@@ -6,6 +6,7 @@ const SECONDARY_COLOR = '#424242';
 const BACKGROUND_COLOR = '#fff';
 const TEXT_COLOR = '#FFFFFF';
 const WHITE = "#FFFFFF";
+const LIGHTGRAY = "#E8E8E8";
 const GRAY = "#757E90";
 const DARK_GRAY = "#363636";
 const BLACK = "#000000";
@@ -124,6 +125,7 @@ export default StyleSheet.create({
   },
   searchBarInput: {
     height: 30,
+    backgroundColor: LIGHTGRAY,
   }
 });
 

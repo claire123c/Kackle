@@ -3,9 +3,11 @@ import { Text, View, Button } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
 import dbQuery from '../db/index.js';
+import PropTypes from 'prop-types';
 
 
-export default function List() {
+export default function List({ search }) {
+
   const [ superlike, setSuperLike ] = useState([]);
   const [ likes , setLikes ] = useState([]);
 
@@ -20,8 +22,20 @@ export default function List() {
     setSuperLike(superLikeResult.rows);
   }
 
-  const displayLikes = (likesArr) => {
-    return likesArr.map(({ name, id }) => (
+  const filterOnSearch = (list = []) => {
+    if (search !== '') {
+      return list.filter(({ name }) => (
+        name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      ))
+    } else {
+      return list;
+    }
+  }
+
+  const displayLikes = (likesArr = []) => {
+    let filtered = filterOnSearch(likesArr);
+    console.log(filtered)
+    return filtered.map(({ name, id}) => (
       <ListItem key={id}>
         <ListItem.Title>
           {name}
@@ -30,24 +44,36 @@ export default function List() {
     ))
   }
 
-  const displaySuperLikes = (superLikesArr) => {
-    return superLikesArr.map(({ name, id }) => (
+  const displaySuperLikes = (superLikesArr = []) => {
+    return filterOnSearch(superLikesArr.map(({ name, id }) => (
       <ListItem key={id}>
         <ListItem.Title>
           {name}
         </ListItem.Title>
       </ListItem>
-    ))
+    )))
   }
 
   useEffect(() => {
     getMyRestaurants();
   }, []);
 
+  useEffect(() => {
+    getMyRestaurants();
+  }, [search])
+
   return (
     <View>
       {displayLikes(likes)}
     </View>
   );
+}
+
+List.propTypes = {
+  search: PropTypes.string
+}
+
+List.defaultProps = {
+  search: '',
 }
 

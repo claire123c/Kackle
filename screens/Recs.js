@@ -16,7 +16,7 @@ const [search, useSearch] = useState('');
   return (
   <View>
     <SearchBar placeholder="Search" lightTheme="true" value={search} onChangeText={updateSearch} containerStyle={styles.searchBar} inputContainerStyle={styles.searchBarInput}/>
-    <List />
+    <List search={search}/>
   </View>
   );
 };
