@@ -20,10 +20,12 @@ const DIMENSION_WIDTH = Dimensions.get("window").width;
 const DIMENSION_HEIGHT = Dimensions.get("window").height;
 
 const FONTSIZE = {
-  XS: 12,
+  XXS: 12,
+  XS: 14,
   S: 18,
   SM: 20,
   M: 24,
+  ML: 30,
   L: 36,
   XL: 48,
 };
@@ -46,7 +48,7 @@ export default StyleSheet.create({
   mainImage: {
     height: DIMENSION_HEIGHT - 200,
     width: DIMENSION_WIDTH - 70,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   card: {
     justifyContent: 'center',
@@ -97,9 +99,23 @@ export default StyleSheet.create({
     fontFamily: 'Avenir',
     textAlign: 'center',
   },
-  location: {
+  locationContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginBottom: 10,
+  },
+  locationText: {
+    color: GRAY,
+    fontSize: FONTSIZE.XS,
+  },
+  logo: {
+    width: FONTSIZE.M,
+    height: FONTSIZE.M,
+  },
+  kackleText: {
     fontSize: FONTSIZE.S,
-
+    color: PRIMARY_COLOR
   }
 });
 

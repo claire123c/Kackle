@@ -1,12 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { Button } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from '../assets/styles/index.js';
 import Home from '../screens/Home.js';
 import Recs from '../screens/Recs.js';
 import Settings from '../screens/Settings.js';
+import fox from '../assets/fox.png';
 
 const Stack = createStackNavigator()
 

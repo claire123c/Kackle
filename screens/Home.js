@@ -1,14 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useLayoutEffect, useState, useEffect } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Key from '../config.js';
+import { FontAwesome } from '@expo/vector-icons';
 
 import styles from '../assets/styles/index.js';
 import Buttons from '../components/Buttons.js';
 import Main from '../components/Main.js';
 import sampleData from '../sampleData.js';
+import fox from '../assets/fox.png';
 
 export default function Home({ navigation }) {
   const [businesses, setBusinesses] = useState(sampleData);
@@ -39,11 +41,16 @@ export default function Home({ navigation }) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      // headerTitle: () => (
+      //   <Text style={styles.kackleText}></Text>
+      //   // <Image source={fox} style={styles.logo}/>
+      // ),
       headerRight: () => (
         <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate('Recs')}/>
       ),
       headerLeft: () => (
-        <Ionicons name="md-settings-sharp" style={styles.settings} onPress={() => navigation.navigate('Settings')}/>
+        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate('Settings')} />
+        // <Ionicons name="md-settings-sharp" style={styles.settings} onPress={() => navigation.navigate('Settings')}/>
       )
     });
   }, [navigation]);
