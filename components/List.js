@@ -1,49 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Button } from 'react-native';
 import { ListItem } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
-import executeQuery from '../db/index.js';
+import dbQuery from '../db/index.js';
 
 
 export default function List() {
+  const [ superlike, setSuperLike ] = useState([]);
+  const [ likes , setLikes ] = useState([]);
 
-  // const getMyRestaurants = async () => {
-  //   const query = `SELECT * FROM restaurants`;
+  const getMyRestaurants = async () => {
+    const queryLikes = `SELECT * FROM restaurants WHERE status = 'LIKE'`;
+    const querySuperLikes = `SELECT * FROM restaurants WHERE status = 'SUPERLIKE'`;
 
-  //   let result = await executeQuery(query);
+    let likeResults = await dbQuery(queryLikes);
+    let superLikeResult = await dbQuery(querySuperLikes);
 
-  //   console.log(result, 'yo');
-  //   return result;
-  // }
+    setLikes(likeResults.rows);
+    setSuperLike(superLikeResult.rows);
+  }
 
+  const displayLikes = (likesArr) => {
+    console.log(likesArr)
+    return likesArr.map(({ name, id }) => (
+      <ListItem key={id}>
+        <ListItem.Title>
+          {name}
+        </ListItem.Title>
+      </ListItem>
+    ))
+  }
 
-  // useEffect(() => {
-  //   console.log(getMyRestaurants(), 'yo');
-
-  // }, []);
+  useEffect(() => {
+    getMyRestaurants();
+  }, []);
 
   return (
     <View>
-      <ListItem>
-        <ListItem.Title>
-          Restaurant 1
-        </ListItem.Title>
-      </ListItem>
-      <ListItem>
-        <ListItem.Title>
-          Restaurant 2
-        </ListItem.Title>
-      </ListItem>
-      <ListItem>
-        <ListItem.Title>
-          Restaurant 3
-        </ListItem.Title>
-      </ListItem>
-      <ListItem>
-        <ListItem.Title>
-          Restaurant 4
-        </ListItem.Title>
-      </ListItem>
+      {displayLikes(likes)}
     </View>
   );
 }
