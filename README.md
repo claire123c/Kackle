@@ -3,7 +3,7 @@
 # Index
 <ol>
     <li><a href="#Summary">Summary</a></li>
-    <li><a href="#Prequisites">Prequisites</a></li>
+    <li><a href="#Prequisites">Prerequisites</a></li>
     <li><a href="#Usage">Usage</a></li>
     <li><a href="#Author">Author</a></li>
     <li><a href="#Acknowledgements">Acknowledgements</a></li>
