@@ -12,7 +12,7 @@
 ## Summary
 Kackle is a MVP mobile application that allows users to swipe through food images from the Yelp API and save delicious looking images in their Future Eats list.
 
-## Prequisites
+## Prerequisites
 ```sh
 Node v14.16.0
 npm 7.16.0
