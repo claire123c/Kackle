@@ -89,7 +89,7 @@ export default function List({ search }) {
             onPress={() => {deleteFood(id)}}
           />
         }>
-         <Avatar source={{uri: image_url}} avatarStyle={styles.avatar}/>
+         <Avatar icon={{name: 'star', color: '#3498db', size: 24, type: 'font-awesome'}} />
          <ListItem.Content>
           <ListItem.Title>
             {name}
@@ -98,6 +98,7 @@ export default function List({ search }) {
             {price}
           </ListItem.Subtitle>
         </ListItem.Content>
+        <ListItem.Chevron />
       </ListItem.Swipeable>
     ))
   }

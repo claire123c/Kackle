@@ -7,6 +7,7 @@ const BACKGROUND_COLOR = '#fff';
 const TEXT_COLOR = '#FFFFFF';
 const WHITE = "#FFFFFF";
 const LIGHTGRAY = "#E8E8E8";
+const LESSLIGHTGRAY = '#DCDCDC';
 const GRAY = "#757E90";
 const DARK_GRAY = "#363636";
 const BLACK = "#000000";
@@ -41,14 +42,15 @@ export default StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    margin: 10,
   },
   homeContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   mainImage: {
-    height: DIMENSION_HEIGHT - 200,
-    width: DIMENSION_WIDTH - 70,
+    height: DIMENSION_HEIGHT - 190,
+    width: DIMENSION_WIDTH - 20,
     borderRadius: 10,
   },
   card: {
@@ -79,12 +81,12 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.0)',
   },
   drumstick: {
-    color: SECONDARY_COLOR,
+    color: LESSLIGHTGRAY,
     marginRight: 10,
     fontSize: FONTSIZE.M,
   },
   settings: {
-    color: SECONDARY_COLOR,
+    color: LESSLIGHTGRAY,
     marginLeft: 10,
     fontSize: FONTSIZE.M,
   },
@@ -129,7 +131,7 @@ export default StyleSheet.create({
   },
   avatar: {
     borderRadius: 5
-  }
+  },
 });
 
 
