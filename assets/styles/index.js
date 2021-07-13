@@ -9,6 +9,7 @@ const WHITE = "#FFFFFF";
 const LIGHTGRAY = "#E8E8E8";
 const LESSLIGHTGRAY = '#DCDCDC';
 const GRAY = "#757E90";
+const LESS_DARK_GRAY = "#909090";
 const DARK_GRAY = "#363636";
 const BLACK = "#000000";
 
@@ -22,7 +23,8 @@ const DIMENSION_WIDTH = Dimensions.get("window").width;
 const DIMENSION_HEIGHT = Dimensions.get("window").height;
 
 const FONTSIZE = {
-  XXS: 12,
+  XXXS: 12,
+  XXXS: 13,
   XS: 14,
   S: 18,
   SM: 20,
@@ -132,6 +134,17 @@ export default StyleSheet.create({
   avatar: {
     borderRadius: 5
   },
+  settingsText : {
+    marginBottom: 10,
+    marginLeft: 20,
+    marginTop: 40,
+    color: LESS_DARK_GRAY,
+    fontWeight: '500',
+    fontSize: FONTSIZE.XXS,
+  },
+  toggle: {
+    color: PRIMARY_COLOR
+  }
 });
 
 
