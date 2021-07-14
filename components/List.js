@@ -5,7 +5,6 @@ import styles from '../assets/styles/index.js';
 import { dbQuery, dbExecute } from '../db/index.js';
 import PropTypes from 'prop-types';
 
-
 export default function List({ search }) {
 
   const [ superlikes, setSuperLikes ] = useState([]);
@@ -18,12 +17,12 @@ export default function List({ search }) {
     try {
       var likeResults = await dbExecute(queryLikes);
     } catch (error) {
-      console.error(error);
+      throw error;
     }
     try {
       var superLikeResult = await dbExecute(querySuperLikes);
     } catch (error) {
-      console.error(error);
+      throw error;
     }
 
     setLikes(likeResults.rows);
@@ -47,7 +46,7 @@ export default function List({ search }) {
       let result = await dbExecute(query, [id]);
       getMyRestaurants();
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   }
 

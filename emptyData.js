@@ -4,7 +4,7 @@ const emptyData = {
           "id": "H4jJ7XB3CetIr1pg56CczQ",
           "alias": "levain-bakery-new-york",
           "name": "Levain Bakery",
-          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EcrOBogMgnSCGgEQg1tUmw/o.jpg",
+          "image_url": "",
           "is_closed": false,
           "url": "",
           "review_count": 8424,

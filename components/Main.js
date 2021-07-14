@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { dbQuery, dbExecute } from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
+import emptyData from '../sampleData.js';
+import PropTypes from 'prop-types';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import Buttons from './Buttons.js';
@@ -14,7 +16,7 @@ export default function Main({ businesses, getBusinesses, location }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [currentFood, setCurrentFood] = useState(foodInfo[imageIndex]);
   const [offset, setOffset] = useState(0);
-  const { location: { city, country } } = currentFood;
+  const { location: { city, state } } = currentFood;
 
   useEffect(() => {
     setFoodInfo(businesses.businesses);
@@ -47,14 +49,14 @@ export default function Main({ businesses, getBusinesses, location }) {
     try {
       check = await dbQuery(checkQuery, [id]);
     } catch(error) {
-      console.error(error);
+      throw error;
     }
 
     if (check.rows.length === 0) {
       try {
         const response = await dbQuery(query, data);
       } catch (error) {
-        console.error('err', error);
+        throw error;
       }
     }
   }
@@ -63,7 +65,7 @@ export default function Main({ businesses, getBusinesses, location }) {
     try {
       await addFood('LIKE');
     } catch (error) {
-      console.error(error);
+      throw error;
     }
     nextImage();
   };
@@ -72,7 +74,7 @@ export default function Main({ businesses, getBusinesses, location }) {
     try {
       await addFood('SUPERLIKE');
     } catch (error) {
-      console.error(error);
+      throw error;
     }
     nextImage();
   };
@@ -81,7 +83,7 @@ export default function Main({ businesses, getBusinesses, location }) {
     try {
       await addFood('DISLIKE');
     } catch (error) {
-      console.error(error);
+      throw error;
     }
     nextImage();
   };
@@ -93,11 +95,20 @@ export default function Main({ businesses, getBusinesses, location }) {
 
   return (
     <View style={styles.container}>
-      {/* <Location city={city} country={country}/> */}
       <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
       <Card currentFood={currentFood}/>
       </GestureRecognizer>
+      <Location city={city} state={state}/>
       <Buttons onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} superLiked={superLiked}/>
     </View>
   );
+}
+
+Main.propTypes = {
+  businesses: PropTypes.object
+}
+
+Main.defaultTypes = {
+  businesses: emptyData,
+  foodInfo: emptyData.businesses,
 }

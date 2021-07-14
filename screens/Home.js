@@ -18,7 +18,7 @@ const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 
 export default function Home({ navigation }) {
-  const [location, setLocation] = useState('Virginia');
+  const [location, setLocation] = useState('Fredericksburgvirginia');
   const [businesses, setBusinesses] = useState(emptyData);
 
   console.log(location, 'home')
@@ -35,8 +35,11 @@ export default function Home({ navigation }) {
           },
         });
         let json = await response.json();
-        //console.log(json);
-        setBusinesses(json);
+        if (json.error) {
+          setBusinesses(emptyData);
+        } else {
+          setBusinesses(json);
+        }
       } catch (error) {
         throw error;
       }

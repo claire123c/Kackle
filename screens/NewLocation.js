@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 
 import styles from '../assets/styles/index.js';
@@ -8,7 +8,12 @@ import { SearchBar, ListItem } from 'react-native-elements';
 export default function NewLocation( { route }) {
   const { location, setLocation } = route.params;
   const [search, useSearch] = useState('');
-  const [past, setPast] = useState(['Hawaii', 'Chicago']);
+  const [past, setPast] = useState(['San Francisco', 'Chicago']);
+
+  console.log(location)
+  useEffect(() => {
+    setLocation(location)
+  }, [location])
 
   const updateSearch = (search) => {
     useSearch(search);
@@ -24,12 +29,12 @@ export default function NewLocation( { route }) {
 
   return (
   <View>
-    <SearchBar placeholder="Search" lightTheme="true" value={search} onChangeText={updateSearch} containerStyle={styles.searchBar} inputContainerStyle={styles.searchBarInput}/>
+    <SearchBar placeholder="Search City" lightTheme="true" value={search} onChangeText={updateSearch} containerStyle={styles.searchBar} inputContainerStyle={styles.searchBarInput}/>
     <Text style={styles.pastSearchesTitle}>
       Past Searches
     </Text>
     {past.map((item) => (
-      <ListItem>
+      <ListItem key={item}>
         <ListItem.Title>
           {item}
         </ListItem.Title>

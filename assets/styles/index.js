@@ -51,7 +51,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   mainImage: {
-    height: DIMENSION_HEIGHT - 160,
+    height: DIMENSION_HEIGHT - 190,
     width: DIMENSION_WIDTH - 20,
     borderRadius: 10,
   },
@@ -108,7 +108,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginBottom: 10,
+    marginTop: 10,
   },
   locationText: {
     color: GRAY,
