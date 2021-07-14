@@ -34,7 +34,7 @@ export default function Home({ navigation }) {
         let json = await response.json();
         setBusinesses(json);
       } catch (error) {
-        console.error('Error', error);
+        throw error;
       }
     }
   }

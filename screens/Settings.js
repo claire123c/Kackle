@@ -40,7 +40,7 @@ export default function Settings({ navigation }) {
       <ListItem.Chevron />
     </ListItem>
     <Text style={styles.settingsText}>DISCOVERY</Text>
-    <ListItem className="location">
+    <ListItem className="location" onPress={() => navigation.navigate('New Location')}>
       <ListItem.Content>
         <ListItem.Title>Location</ListItem.Title>
       </ListItem.Content>
