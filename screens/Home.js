@@ -16,9 +16,10 @@ import fox from '../assets/fox.png';
 const SCREEN1 = 'Kackle';
 const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
+const search = 'Fredericksburg, Virginia';
 
 export default function Home({ navigation }) {
-  const [location, setLocation] = useState('Fredericksburg, Virginia');
+  const [location, setLocation] = useState('New York');
   const [businesses, setBusinesses] = useState(emptyData);
 
   console.log(location, 'home')
@@ -72,7 +73,7 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Main businesses={businesses} getBusinesses={getBusinesses} />
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
     </View>
   );
 };

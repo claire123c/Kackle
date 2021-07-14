@@ -10,7 +10,6 @@ export default function NewLocation( { route }) {
   const [search, useSearch] = useState('');
   const [past, setPast] = useState(['San Francisco', 'Chicago']);
 
-  console.log(location)
   useEffect(() => {
     setLocation(location)
   }, [location])

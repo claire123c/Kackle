@@ -107,7 +107,7 @@ export default function Settings({ navigation, route }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    <StatusBar style="auto" />
+    {/* <StatusBar style="auto" /> */}
   </ScrollView>
   );
 };
