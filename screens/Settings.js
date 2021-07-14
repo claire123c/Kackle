@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 import { Slider, SearchBar, ListItem } from 'react-native-elements';
@@ -9,6 +9,16 @@ import styles from '../assets/styles/index.js';
 
 
 export default function Settings({ navigation }) {
+  const [vegan, setVegan] = useState(false);
+  const [vegetarian, setVegetarian] = useState(false);
+
+  const changeVegan = () => {
+    setVegan(!vegan);
+  }
+
+  const changeVegetarian = () => {
+    setVegetarian(!vegetarian);
+  }
 
   return (
   <View>
@@ -40,7 +50,18 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    <Switch value={false}/>
+    <ListItem className="vegetarian">
+      <ListItem.Content>
+        <ListItem.Title>Vegetarian</ListItem.Title>
+      </ListItem.Content>
+      <Switch value={vegan} onValueChange={changeVegan} color="#FF2D55"/>
+    </ListItem>
+    <ListItem className="vegan">
+      <ListItem.Content>
+        <ListItem.Title>Vegan</ListItem.Title>
+      </ListItem.Content>
+      <Switch value={vegetarian} onValueChange={changeVegetarian}color="#FF2D55"/>
+    </ListItem>
     <StatusBar style="auto" />
   </View>
   );

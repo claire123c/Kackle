@@ -93,7 +93,7 @@ export default function Main({ businesses, getBusinesses, location }) {
 
   return (
     <View style={styles.container}>
-      <Location city={city} country={country}/>
+      {/* <Location city={city} country={country}/> */}
       <GestureRecognizer onSwipeRight={onSwipeRight} onSwipeLeft={onSwipeLeft} config={config}>
       <Card currentFood={currentFood}/>
       </GestureRecognizer>

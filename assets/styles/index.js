@@ -51,7 +51,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   mainImage: {
-    height: DIMENSION_HEIGHT - 190,
+    height: DIMENSION_HEIGHT - 160,
     width: DIMENSION_WIDTH - 20,
     borderRadius: 10,
   },
