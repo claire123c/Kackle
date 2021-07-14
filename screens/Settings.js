@@ -8,7 +8,8 @@ import { Animated } from 'react-native';
 import styles from '../assets/styles/index.js';
 
 
-export default function Settings({ navigation }) {
+export default function Settings({ navigation, route }) {
+  const { location, setLocation } = route.params;
   const [vegan, setVegan] = useState(false);
   const [vegetarian, setVegetarian] = useState(false);
   const [maxDistance, setMaxDistance] = useState(0);
@@ -40,11 +41,16 @@ export default function Settings({ navigation }) {
       <ListItem.Chevron />
     </ListItem>
     <Text style={styles.settingsText}>DISCOVERY</Text>
-    <ListItem className="location" onPress={() => navigation.navigate('New Location')}>
+    <ListItem className="location" onPress={() => navigation.navigate('New Location', {
+          location: location,
+          setLocation: setLocation
+    })}>
       <ListItem.Content>
         <ListItem.Title>Location</ListItem.Title>
       </ListItem.Content>
-      <ListItem.Chevron />
+      <Text>
+        {location}
+      </Text>
     </ListItem>
     <Divider />
     <ListItem className="vegan">

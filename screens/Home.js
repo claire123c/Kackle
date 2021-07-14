@@ -21,6 +21,8 @@ export default function Home({ navigation }) {
   const [location, setLocation] = useState('Virginia');
   const [businesses, setBusinesses] = useState(emptyData);
 
+  console.log(location, 'home')
+
   const getBusinesses = async (offset = 0) => {
     if (offset > 980) {
       return null;
@@ -33,7 +35,7 @@ export default function Home({ navigation }) {
           },
         });
         let json = await response.json();
-        console.log(json);
+        //console.log(json);
         setBusinesses(json);
       } catch (error) {
         throw error;
@@ -52,10 +54,13 @@ export default function Home({ navigation }) {
       //   // <Image source={fox} style={styles.logo}/>
       // ),
       headerRight: () => (
-        <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate(SCREEN2)}/>
+        <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate(SCREEN2, { location: location })}/>
       ),
       headerLeft: () => (
-        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate(SCREEN3)} />
+        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate(SCREEN3, {
+          location: location,
+          setLocation: setLocation
+        })} />
         // <Ionicons name="md-settings-sharp" style={styles.settings} onPress={() => navigation.navigate('Settings')}/>
       )
     });

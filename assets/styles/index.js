@@ -161,6 +161,12 @@ export default StyleSheet.create({
   maxDistanceStyle: {
     backgroundColor: "white",
     padding: 20,
+  },
+  pastSearchesTitle: {
+    color: GRAY,
+    marginTop: 8,
+    marginBottom: 8,
+    marginLeft: 5
   }
 });
 
