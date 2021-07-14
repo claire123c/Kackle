@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { dbQuery, dbExecute } from '../db/index.js';
 import { View, Image } from 'react-native';
 import styles from '../assets/styles/index.js';
-import emptyData from '../sampleData.js';
+import emptyData from '../emptyData.js';
 import PropTypes from 'prop-types';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 

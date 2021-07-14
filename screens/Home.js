@@ -10,7 +10,7 @@ import styles from '../assets/styles/index.js';
 import Buttons from '../components/Buttons.js';
 import Main from '../components/Main.js';
 import sampleData from '../sampleData.js';
-import emptyData from '../sampleData.js';
+import emptyData from '../emptyData.js';
 import fox from '../assets/fox.png';
 
 const SCREEN1 = 'Kackle';
@@ -18,7 +18,7 @@ const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 
 export default function Home({ navigation }) {
-  const [location, setLocation] = useState('Fredericksburgvirginia');
+  const [location, setLocation] = useState('Fredericksburg, Virginia');
   const [businesses, setBusinesses] = useState(emptyData);
 
   console.log(location, 'home')

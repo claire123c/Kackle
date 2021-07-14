@@ -89,5 +89,6 @@ const emptyData = {
       }
 
   ]
+}
 
 export default emptyData
