@@ -46,7 +46,15 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    <Text>Maximum Distance {maxDistance} miles</Text>
+    <Divider />
+    <ListItem className="vegan">
+      <ListItem.Content>
+        <ListItem.Title>Maximum Distance </ListItem.Title>
+      </ListItem.Content>
+      <Text style={styles.distanceTracking}>
+        {maxDistance} miles
+      </Text>
+    </ListItem>
     <Slider
       value={maxDistance} onValueChange={changeDistance} minimumValue={0}
       maximumValue={10000}
@@ -55,6 +63,7 @@ export default function Settings({ navigation }) {
       step={5}
       minimumTrackTintColor="#FF2D55"
       maximumTrackTintColor="#757E90"
+      style={styles.maxDistanceStyle}
     />
     <Divider/>
     <ListItem className="vegan">
@@ -70,6 +79,7 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <Switch value={vegetarian} onValueChange={changeVegetarian}color="#FF2D55"/>
     </ListItem>
+    <Divider/>
     <ListItem className="distance">
       <ListItem.Content>
         <ListItem.Title>Categories</ListItem.Title>

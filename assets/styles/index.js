@@ -155,8 +155,12 @@ export default StyleSheet.create({
       height: 2,
     },
   },
-  trackStyleSettings: {
-    color: 'red'
+  distanceTracking: {
+    color: GRAY
+  },
+  maxDistanceStyle: {
+    backgroundColor: "white",
+    padding: 20,
   }
 });
 
