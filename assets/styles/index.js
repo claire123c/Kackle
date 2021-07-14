@@ -154,6 +154,9 @@ export default StyleSheet.create({
       width: 0,
       height: 2,
     },
+  },
+  trackStyleSettings: {
+    color: 'red'
   }
 });
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView } from 'react-native';
-import { Slider, SearchBar, ListItem } from 'react-native-elements';
+import { Slider, SearchBar, ListItem, Divider } from 'react-native-elements';
 import { Switch } from 'react-native-paper';
 import { Animated } from 'react-native';
 
@@ -19,8 +19,8 @@ export default function Settings({ navigation }) {
   const changeVegetarian = () => {
     setVegetarian(!vegetarian);
   }
-  const changeDistance = (event) => {
-    setMaxDistance(event.target.value);
+  const changeDistance = (value) => {
+    setMaxDistance(value);
   }
 
   return (
@@ -32,6 +32,7 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
+    <Divider/>
     <ListItem className="email">
       <ListItem.Content>
         <ListItem.Title>Email</ListItem.Title>
@@ -50,27 +51,41 @@ export default function Settings({ navigation }) {
       value={maxDistance} onValueChange={changeDistance} minimumValue={0}
       maximumValue={10000}
       thumbStyle={styles.thumbStyleSettings}
+      trackStyle={styles.trackStyleSettings}
+      step={5}
+      minimumTrackTintColor="#FF2D55"
+      maximumTrackTintColor="#757E90"
     />
+    <Divider/>
+    <ListItem className="vegan">
+      <ListItem.Content>
+        <ListItem.Title>Vegan</ListItem.Title>
+      </ListItem.Content>
+      <Switch value={vegan} onValueChange={changeVegan} color="#FF2D55"/>
+    </ListItem>
+    <Divider/>
+    <ListItem className="vegetarian">
+      <ListItem.Content>
+        <ListItem.Title>Vegetarian</ListItem.Title>
+      </ListItem.Content>
+      <Switch value={vegetarian} onValueChange={changeVegetarian}color="#FF2D55"/>
+    </ListItem>
     <ListItem className="distance">
       <ListItem.Content>
         <ListItem.Title>Categories</ListItem.Title>
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    <ListItem className="vegetarian">
+    <Divider/>
+    <ListItem className="allergies">
       <ListItem.Content>
-        <ListItem.Title>Vegetarian</ListItem.Title>
+        <ListItem.Title>Allergies</ListItem.Title>
       </ListItem.Content>
-      <Switch value={vegan} onValueChange={changeVegan} color="#FF2D55"/>
+      <ListItem.Chevron />
     </ListItem>
-    <ListItem className="vegan">
-      <ListItem.Content>
-        <ListItem.Title>Vegan</ListItem.Title>
-      </ListItem.Content>
-      <Switch value={vegetarian} onValueChange={changeVegetarian}color="#FF2D55"/>
-    </ListItem>
+
     <Text style={styles.settingsText}>PREMIUM</Text>
-    <ListItem className="vegan">
+    <ListItem className="premium">
       <ListItem.Content>
         <ListItem.Title>Kackle Premium</ListItem.Title>
       </ListItem.Content>
