@@ -10,6 +10,7 @@ import styles from '../assets/styles/index.js';
 import Buttons from '../components/Buttons.js';
 import Main from '../components/Main.js';
 import sampleData from '../sampleData.js';
+import emptyData from '../sampleData.js';
 import fox from '../assets/fox.png';
 
 const SCREEN1 = 'Kackle';
@@ -17,8 +18,8 @@ const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 
 export default function Home({ navigation }) {
-  const [businesses, setBusinesses] = useState(sampleData);
-  const [location, setLocation] = useState('New York');
+  const [location, setLocation] = useState('Virginia');
+  const [businesses, setBusinesses] = useState(emptyData);
 
   const getBusinesses = async (offset = 0) => {
     if (offset > 980) {
@@ -32,6 +33,7 @@ export default function Home({ navigation }) {
           },
         });
         let json = await response.json();
+        console.log(json);
         setBusinesses(json);
       } catch (error) {
         throw error;
@@ -40,8 +42,8 @@ export default function Home({ navigation }) {
   }
 
   useEffect(() => {
-    //getBusinesses();
-  }, [])
+    getBusinesses();
+  }, [location])
 
   useLayoutEffect(() => {
     navigation.setOptions({

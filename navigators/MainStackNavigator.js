@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { TransitionPresets } from '@react-navigation/stack';
@@ -24,14 +24,12 @@ export default function MainStackNavigator() {
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        <Stack.Screen name={SCREEN1} component={Home}/>
+        <Stack.Screen name={SCREEN1} component={Home} />
         <Stack.Screen name={SCREEN2} component={Recs} keyboardHandlingEnabled={true}/>
         <Stack.Screen name={SCREEN3} component={Settings} options={{
          ...TransitionPresets.ModalSlideFromBottomIOS,
         }}/>
-        <Stack.Screen name={SCREEN4} component={NewLocation} options={{
-         ...TransitionPresets.ModalSlideFromBottomIOS,
-        }}/>
+        <Stack.Screen name={SCREEN4} component={NewLocation}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
