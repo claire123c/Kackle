@@ -144,6 +144,16 @@ export default StyleSheet.create({
   },
   toggle: {
     color: PRIMARY_COLOR
+  },
+  thumbStyleSettings: {
+    height: 30,
+    width: 30,
+    backgroundColor: '#fff',
+    shadowOpacity: 0.3,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   }
 });
 

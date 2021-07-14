@@ -11,13 +11,16 @@ import styles from '../assets/styles/index.js';
 export default function Settings({ navigation }) {
   const [vegan, setVegan] = useState(false);
   const [vegetarian, setVegetarian] = useState(false);
+  const [maxDistance, setMaxDistance] = useState(0);
 
   const changeVegan = () => {
     setVegan(!vegan);
   }
-
   const changeVegetarian = () => {
     setVegetarian(!vegetarian);
+  }
+  const changeDistance = (event) => {
+    setMaxDistance(event.target.value);
   }
 
   return (
@@ -42,8 +45,12 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    <Text>Maximum Distance</Text>
-    <Slider/>
+    <Text>Maximum Distance {maxDistance} miles</Text>
+    <Slider
+      value={maxDistance} onValueChange={changeDistance} minimumValue={0}
+      maximumValue={10000}
+      thumbStyle={styles.thumbStyleSettings}
+    />
     <ListItem className="distance">
       <ListItem.Content>
         <ListItem.Title>Categories</ListItem.Title>
