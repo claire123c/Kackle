@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { Slider, SearchBar, ListItem } from 'react-native-elements';
 import { Switch } from 'react-native-paper';
 import { Animated } from 'react-native';
@@ -21,7 +21,7 @@ export default function Settings({ navigation }) {
   }
 
   return (
-  <View>
+  <ScrollView>
     <Text style={styles.settingsText}>ACCOUNT SETTINGS</Text>
     <ListItem className="phone">
       <ListItem.Content>
@@ -62,7 +62,14 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <Switch value={vegetarian} onValueChange={changeVegetarian}color="#FF2D55"/>
     </ListItem>
+    <Text style={styles.settingsText}>PREMIUM</Text>
+    <ListItem className="vegan">
+      <ListItem.Content>
+        <ListItem.Title>Kackle Premium</ListItem.Title>
+      </ListItem.Content>
+      <ListItem.Chevron />
+    </ListItem>
     <StatusBar style="auto" />
-  </View>
+  </ScrollView>
   );
 };
