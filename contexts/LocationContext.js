@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 
-const LocationContext = React.createContext('New York');
+const LocationContext = React.createContext();
 
-const LocationInfo = () => {
-  const [location, setLocation] = useState('New York')
-}
+export default LocationContext;

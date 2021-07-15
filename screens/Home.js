@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useLayoutEffect, useState, useEffect, useContext } from 'react';
 import { Text, View, Button, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,17 +12,17 @@ import Main from '../components/Main.js';
 import sampleData from '../sampleData.js';
 import emptyData from '../emptyData.js';
 import fox from '../assets/fox.png';
+import LocationContext from '../contexts/LocationContext.js';
 
 const SCREEN1 = 'Kackle';
 const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 const search = 'Fredericksburg, Virginia';
 
-export default function Home({ navigation }) {
-  const [location, setLocation] = useState('New York');
-  const [businesses, setBusinesses] = useState(emptyData);
 
-  console.log(location, 'home')
+export default function Home({ navigation }) {
+  const [businesses, setBusinesses] = useState(emptyData);
+  const { location, setLocation } = useContext(LocationContext);
 
   const getBusinesses = async (offset = 0) => {
     if (offset > 980) {
