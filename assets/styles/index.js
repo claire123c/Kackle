@@ -165,6 +165,7 @@ export default StyleSheet.create({
     backgroundColor: WHITE,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 10,
   },
   pastSearchesTitle: {
     color: GRAY,

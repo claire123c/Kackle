@@ -60,7 +60,6 @@ export default function Settings({ navigation }) {
         {maxDistance} miles
       </Text>
     </ListItem>
-    <Divider />
     <View style={styles.sliderBackground}>
       <Slider
         value={maxDistance} onValueChange={changeDistance} minimumValue={0}
