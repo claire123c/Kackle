@@ -5,6 +5,7 @@ import { Avatar } from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import styles from '../assets/styles/index.js';
 import Key from '../config.js';
+import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
 
 
@@ -38,14 +39,14 @@ export default function FoodDetails({ route }) {
   return (
     image_url ?
     (<View style={styles.detailsContainer}>
-      <Text style={styles.detailsTitle}>
+      <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
         {name}
       </Text>
       <View style={styles.ratingBox}>
         <Rating readonly startingValue={rating}  imageSize={20}/>
         <Text>{review_count} Reviews</Text>
       </View>
-      <View style={styles.showcase}>
+      <View>
         <Avatar.Image source={{uri: image_url}}/>
       </View>
     </View>)
