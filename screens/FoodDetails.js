@@ -15,7 +15,7 @@ export default function FoodDetails({ route }) {
   }
   const id = route.params;
   const [ biz, setBiz ] = useState({});
-  const { name, image_url, phone, url, review_count, rating } = biz;
+  const { name, image_url, phone, url, review_count, rating, location } = biz;
 
   const getBizDeets = async () => {
     try {
@@ -42,12 +42,19 @@ export default function FoodDetails({ route }) {
       <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
         {name}
       </Text>
-      <View style={styles.ratingBox}>
-        <Rating readonly startingValue={rating}  imageSize={20}/>
-        <Text>{review_count} Reviews</Text>
-      </View>
-      <View>
+      <View style={styles.detailsBox}>
         <Avatar.Image source={{uri: image_url}}/>
+        <View>
+          <View style={styles.ratingBox}>
+          <Rating readonly startingValue={rating}  imageSize={20}/>
+          <Text>{review_count} Reviews</Text>
+          </View>
+          {location.display_address.map((line) => (
+            <Text key={line}>
+              {line}
+            </Text>
+          ))}
+        </View>
       </View>
     </View>)
     :(<Text>Loading ...</Text>)

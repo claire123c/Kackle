@@ -189,7 +189,8 @@ export default StyleSheet.create({
   detailsRating: {
     color: PRIMARY_COLOR,
   },
-  showcase: {
+  detailsBox: {
+    flexDirection: 'row',
   }
 });
 
