@@ -48,6 +48,7 @@ export default function Main({ businesses, getBusinesses, location }) {
     let check;
     try {
       check = await dbQuery(checkQuery, [id]);
+      console.log(check);
     } catch(error) {
       throw error;
     }
@@ -55,6 +56,7 @@ export default function Main({ businesses, getBusinesses, location }) {
     if (check.rows.length === 0) {
       try {
         const response = await dbQuery(query, data);
+        console.log('re', response);
       } catch (error) {
         throw error;
       }
@@ -80,11 +82,11 @@ export default function Main({ businesses, getBusinesses, location }) {
   };
 
   const onSwipeLeft = async () => {
-    try {
-      await addFood('DISLIKE');
-    } catch (error) {
-      throw error;
-    }
+    // try {
+    //   await addFood('DISLIKE');
+    // } catch (error) {
+    //   throw error;
+    // }
     nextImage();
   };
 
