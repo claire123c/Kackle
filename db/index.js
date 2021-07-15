@@ -4,8 +4,6 @@ import {Database} from "./database";
 // const db = SQLite.openDatabase('db.restaurants');
 const db = new Database("restaurants");
 
-const drop = `DROP TABLE restaurants`;
-
 const tableQuery = `CREATE TABLE IF NOT EXISTS restaurants (
   id int PRIMARY KEY,
   name varchar(200),
@@ -53,15 +51,10 @@ const dbExecute = async (query, params = []) => {
 //   })
 // }
 
-const dropTable = async () => {
-  await dbQuery(drop);
-}
-
 const createTable = async () => {
   await dbQuery(tableQuery, data);
 }
 
 createTable();
-// dbQuery2(query);
 
 export { dbQuery, dbExecute };
