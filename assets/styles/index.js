@@ -180,12 +180,16 @@ export default StyleSheet.create({
   detailsTitle: {
     fontSize: FONTSIZE.M,
     fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  ratingBox: {
+    flexDirection: 'row',
     marginBottom: 10,
   },
-  detailsAvatar: {
-  },
   detailsRating: {
-    // backgroundColor: GRAY
+    color: PRIMARY_COLOR,
+  },
+  showcase: {
   }
 });
 
