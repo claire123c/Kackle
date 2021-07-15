@@ -7,6 +7,7 @@ import Home from '../screens/Home.js';
 import Recs from '../screens/Recs.js';
 import Settings from '../screens/Settings.js';
 import NewLocation from '../screens/NewLocation.js';
+import FoodDetails from '../screens/FoodDetails.js';
 import LocationContext from '../contexts/LocationContext.js';
 
 const Stack = createStackNavigator();
@@ -14,6 +15,8 @@ const SCREEN1 = 'Kackle';
 const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 const SCREEN4 = 'New Location';
+const SCREEN5 = 'Food Details';
+
 
 const screen3Options = {
   animationEnabled: false
@@ -36,6 +39,7 @@ export default function MainStackNavigator() {
           ...TransitionPresets.ModalSlideFromBottomIOS,
           }}/>
           <Stack.Screen name={SCREEN4} component={NewLocation}/>
+          <Stack.Screen name={SCREEN5} component={FoodDetails}/>
         </Stack.Navigator>
       </NavigationContainer>
     </LocationContext.Provider>
