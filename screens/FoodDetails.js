@@ -44,7 +44,7 @@ export default function FoodDetails({ route }) {
       </Text>
       <View style={styles.detailsBox}>
         <Avatar.Image source={{uri: image_url}}/>
-        <View>
+        <View style={styles.detailed}>
           <View style={styles.ratingBox}>
           <Rating readonly startingValue={rating}  imageSize={20}/>
           <Text>{review_count} Reviews</Text>

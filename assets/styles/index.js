@@ -191,6 +191,10 @@ export default StyleSheet.create({
   },
   detailsBox: {
     flexDirection: 'row',
+  },
+  detailed: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
   }
 });
 
