@@ -56,7 +56,7 @@ export default function List({ search }) {
     let filtered = filterOnSearch(likesArr);
     return filtered.map(({ name, id, image_url, price }) => (
       <ListItem.Swipeable key={id}
-        onPress={() => navigation.navigate('Food_Details')}
+        onPress={() => navigation.navigate('Food_Details', id)}
         rightContent={
           <Button
             title="Delete"
@@ -83,7 +83,7 @@ export default function List({ search }) {
     let filtered = filterOnSearch(superLikesArr);
     return filtered.map(({ name, id, image_url, price }) => (
       <ListItem.Swipeable key={id}
-        onPress={() => navigation.navigate('Food_Details')}
+        onPress={() => navigation.navigate('Food_Details', id)}
         rightContent={
           <Button
             title="Delete"

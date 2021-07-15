@@ -12,7 +12,9 @@ export default function FoodDetails() {
 
   return (
   <View>
-
+    <Text>
+      hi
+    </Text>
   </View>
   );
 };
