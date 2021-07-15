@@ -200,8 +200,9 @@ export default StyleSheet.create({
   },
   detailsImage: {
     width: '48%',
-    height: 180,
+    height: 185,
     margin: '1%',
+
   },
   allImages: {
     flexDirection: 'row',
