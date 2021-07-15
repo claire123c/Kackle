@@ -4,8 +4,10 @@ import { ListItem, Avatar, Button } from 'react-native-elements'
 import styles from '../assets/styles/index.js';
 import { dbQuery, dbExecute } from '../db/index.js';
 import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 
 export default function List({ search }) {
+  const navigation = useNavigation();
 
   const [ superlikes, setSuperLikes ] = useState([]);
   const [ likes , setLikes ] = useState([]);
@@ -54,6 +56,7 @@ export default function List({ search }) {
     let filtered = filterOnSearch(likesArr);
     return filtered.map(({ name, id, image_url, price }) => (
       <ListItem.Swipeable key={id}
+        onPress={() => navigation.navigate('Food_Details')}
         rightContent={
           <Button
             title="Delete"
@@ -80,6 +83,7 @@ export default function List({ search }) {
     let filtered = filterOnSearch(superLikesArr);
     return filtered.map(({ name, id, image_url, price }) => (
       <ListItem.Swipeable key={id}
+        onPress={() => navigation.navigate('Food_Details')}
         rightContent={
           <Button
             title="Delete"

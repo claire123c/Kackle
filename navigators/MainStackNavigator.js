@@ -15,7 +15,7 @@ const SCREEN1 = 'Kackle';
 const SCREEN2 = 'Future Eats';
 const SCREEN3 = 'Settings';
 const SCREEN4 = 'New Location';
-const SCREEN5 = 'Food Details';
+const SCREEN5 = 'Food_Details';
 
 
 const screen3Options = {
