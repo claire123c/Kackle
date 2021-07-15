@@ -175,16 +175,17 @@ export default StyleSheet.create({
   },
   detailsContainer: {
     backgroundColor: BACKGROUND_COLOR,
-    padding: 20
+    padding: 20,
+    width: '100%',
   },
   detailsTitle: {
     fontSize: FONTSIZE.M,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 20,
   },
   ratingBox: {
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   detailsRating: {
     color: PRIMARY_COLOR,
@@ -195,6 +196,7 @@ export default StyleSheet.create({
   detailed: {
     flexDirection: 'column',
     alignItems: 'flex-end',
+    marginLeft: 70,
   }
 });
 
