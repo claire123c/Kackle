@@ -174,6 +174,7 @@ export default StyleSheet.create({
     marginLeft: 5
   },
   detailsContainer: {
+    backgroundColor: BACKGROUND_COLOR,
     padding: 20
   },
   detailsTitle: {
@@ -182,6 +183,9 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   detailsAvatar: {
+  },
+  detailsRating: {
+    // backgroundColor: GRAY
   }
 });
 
