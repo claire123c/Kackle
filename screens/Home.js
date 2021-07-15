@@ -61,10 +61,7 @@ export default function Home({ navigation }) {
         <MaterialCommunityIcons name="food-drumstick" style={styles.drumstick} onPress={() => navigation.navigate(SCREEN2, { location: location })}/>
       ),
       headerLeft: () => (
-        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate(SCREEN3, {
-          location: location,
-          setLocation: setLocation
-        })} />
+        <FontAwesome name="sliders" style={styles.settings} onPress={() => navigation.navigate(SCREEN3)} />
         // <Ionicons name="md-settings-sharp" style={styles.settings} onPress={() => navigation.navigate('Settings')}/>
       )
     });

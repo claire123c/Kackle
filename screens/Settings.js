@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView } from 'react-native';
 import { Slider, SearchBar, ListItem, Divider } from 'react-native-elements';
 import { Switch } from 'react-native-paper';
 import { Animated } from 'react-native';
+import LocationContext from '../contexts/LocationContext.js';
+
 
 import styles from '../assets/styles/index.js';
 
 
-export default function Settings({ navigation, route }) {
-  const { location, setLocation } = route.params;
+export default function Settings({ navigation }) {
+  const { location, setLocation } = useContext(LocationContext);
   const [vegan, setVegan] = useState(false);
   const [vegetarian, setVegetarian] = useState(false);
   const [maxDistance, setMaxDistance] = useState(0);
@@ -41,10 +43,7 @@ export default function Settings({ navigation, route }) {
       <ListItem.Chevron />
     </ListItem>
     <Text style={styles.settingsText}>DISCOVERY</Text>
-    <ListItem className="location" onPress={() => navigation.navigate('New Location', {
-          location: location,
-          setLocation: setLocation
-    })}>
+    <ListItem className="location" onPress={() => navigation.navigate('New Location')}>
       <ListItem.Content>
         <ListItem.Title>Location</ListItem.Title>
       </ListItem.Content>
