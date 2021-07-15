@@ -60,16 +60,19 @@ export default function Settings({ navigation }) {
         {maxDistance} miles
       </Text>
     </ListItem>
-    <Slider
-      value={maxDistance} onValueChange={changeDistance} minimumValue={0}
-      maximumValue={10000}
-      thumbStyle={styles.thumbStyleSettings}
-      trackStyle={styles.trackStyleSettings}
-      step={5}
-      minimumTrackTintColor="#FF2D55"
-      maximumTrackTintColor="#757E90"
-      style={styles.maxDistanceStyle}
-    />
+    <Divider />
+    <View style={styles.sliderBackground}>
+      <Slider
+        value={maxDistance} onValueChange={changeDistance} minimumValue={0}
+        maximumValue={10000}
+        thumbStyle={styles.thumbStyleSettings}
+        trackStyle={styles.trackStyleSettings}
+        step={5}
+        minimumTrackTintColor="#FF2D55"
+        maximumTrackTintColor="#757E90"
+        style={styles.maxDistanceStyle}
+      />
+    </View>
     <Divider/>
     <ListItem className="vegan">
       <ListItem.Content>
@@ -98,7 +101,6 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-
     <Text style={styles.settingsText}>PREMIUM</Text>
     <ListItem className="premium">
       <ListItem.Content>
@@ -106,7 +108,7 @@ export default function Settings({ navigation }) {
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
-    {/* <StatusBar style="auto" /> */}
+    <StatusBar style="auto" />
   </ScrollView>
   );
 };

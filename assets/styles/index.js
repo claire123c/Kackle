@@ -158,9 +158,13 @@ export default StyleSheet.create({
   distanceTracking: {
     color: GRAY
   },
+  sliderBackground: {
+    backgroundColor: WHITE,
+  },
   maxDistanceStyle: {
-    backgroundColor: "white",
-    padding: 20,
+    backgroundColor: WHITE,
+    marginLeft: 20,
+    marginRight: 20,
   },
   pastSearchesTitle: {
     color: GRAY,
