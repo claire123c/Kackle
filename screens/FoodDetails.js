@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 export default function FoodDetails({ route }) {
   const obj = {
-    image_url: ''
+    image_url: 'https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg'
   }
   const id = route.params;
   const [ biz, setBiz ] = useState(obj);
@@ -37,8 +37,8 @@ export default function FoodDetails({ route }) {
   console.log(image_url);
 
   return (
-  <View>
-    <Text>
+  <View style={styles.detailsContainer}>
+    <Text style={styles.detailsTitle}>
       {name}
     </Text>
     <Avatar.Image source={{uri: image_url}}/>

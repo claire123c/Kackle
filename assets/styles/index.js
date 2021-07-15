@@ -172,6 +172,16 @@ export default StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
     marginLeft: 5
+  },
+  detailsContainer: {
+    padding: 20
+  },
+  detailsTitle: {
+    fontSize: FONTSIZE.M,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  detailsAvatar: {
   }
 });
 
