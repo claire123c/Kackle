@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 
 export default function FoodDetails({ route }) {
   const obj = {
-    image_url: 'https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg'
+    image_url: ''
   }
   const id = route.params;
-  const [ biz, setBiz ] = useState(obj);
+  const [ biz, setBiz ] = useState({});
   const { name, image_url, phone, url, review_count, rating } = biz;
 
   const getBizDeets = async () => {
@@ -32,17 +32,19 @@ export default function FoodDetails({ route }) {
 
   useEffect(() => {
     getBizDeets();
-  }, [route]);
+  }, []);
 
   console.log(image_url);
 
   return (
-  <View style={styles.detailsContainer}>
-    <Text style={styles.detailsTitle}>
-      {name}
-    </Text>
-    <Avatar.Image source={{uri: image_url}}/>
-  </View>
+    image_url ?
+    (<View style={styles.detailsContainer}>
+        <Text style={styles.detailsTitle}>
+          {name}
+        </Text>
+        <Avatar.Image source={{uri: image_url}}/>
+      </View>)
+    :(<Text>Loading ...</Text>)
   );
 };
 
