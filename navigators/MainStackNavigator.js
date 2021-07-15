@@ -23,7 +23,7 @@ const screen3Options = {
 };
 
 export default function MainStackNavigator() {
-  const [location, setLocation] = useState('New York');
+  const [location, setLocation] = useState('San Francisco');
   const context = {
     location: location,
     setLocation: setLocation
