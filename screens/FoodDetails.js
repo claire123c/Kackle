@@ -38,33 +38,34 @@ export default function FoodDetails({ route }) {
 
 
   return (
-    <View>
-
-      {image_url ?
-      (<View style={styles.detailsContainer}>
-        <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
-          {name}
-        </Text>
-        <View style={styles.detailsBox}>
-          <Avatar.Image source={{uri: image_url}}/>
-          <View style={styles.detailed}>
-            <View style={styles.ratingBox}>
-            <Rating readonly startingValue={rating}  imageSize={20}/>
-            <Text>{review_count} Reviews</Text>
-            </View>
-            {location.display_address.map((line) => (
-              <Text key={line}>
-                {line}
-              </Text>
-            ))}
+    image_url ?
+    (<View>
+      <View style={styles.detailsContainer}>
+      <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
+        {name}
+      </Text>
+      <View style={styles.detailsBox}>
+        <Avatar.Image source={{uri: image_url}}/>
+        <View style={styles.detailed}>
+          <View style={styles.ratingBox}>
+          <Rating readonly startingValue={rating}  imageSize={20}/>
+          <Text>{review_count} Reviews</Text>
           </View>
+          {location.display_address.map((line) => (
+            <Text key={line}>
+              {line}
+            </Text>
+          ))}
         </View>
+      </View>
+      </View>
+      <View style={styles.allImages}>
         {photos.map((img) => (
           <Image key={img} source={{uri: img}} style={styles.detailsImage}/>
         ))}
-      </View>)
-      :(<Text>Loading ...</Text>)}
-    </View>
+      </View>
+    </View>)
+    :(<Text>Loading ...</Text>)
   );
 };
 

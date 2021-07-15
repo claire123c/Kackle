@@ -199,9 +199,14 @@ export default StyleSheet.create({
     marginLeft: 70,
   },
   detailsImage: {
-    width: 20,
-    height: 20,
+    width: '40%',
+    height: '20%',
+    margin: '5%',
   },
+  allImages: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  }
 });
 
 
