@@ -15,7 +15,7 @@ export default function FoodDetails({ route }) {
   }
   const id = route.params;
   const [ biz, setBiz ] = useState({});
-  const { name, image_url, phone, url, review_count, rating, location } = biz;
+  const { name, image_url, phone, url, review_count, rating, location, photos } = biz;
 
   const getBizDeets = async () => {
     try {
@@ -36,28 +36,35 @@ export default function FoodDetails({ route }) {
     getBizDeets();
   }, []);
 
+
   return (
-    image_url ?
-    (<View style={styles.detailsContainer}>
-      <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
-        {name}
-      </Text>
-      <View style={styles.detailsBox}>
-        <Avatar.Image source={{uri: image_url}}/>
-        <View style={styles.detailed}>
-          <View style={styles.ratingBox}>
-          <Rating readonly startingValue={rating}  imageSize={20}/>
-          <Text>{review_count} Reviews</Text>
+    <View>
+
+      {image_url ?
+      (<View style={styles.detailsContainer}>
+        <Text style={styles.detailsTitle} onPress={() => {Linking.openURL(url)}}>
+          {name}
+        </Text>
+        <View style={styles.detailsBox}>
+          <Avatar.Image source={{uri: image_url}}/>
+          <View style={styles.detailed}>
+            <View style={styles.ratingBox}>
+            <Rating readonly startingValue={rating}  imageSize={20}/>
+            <Text>{review_count} Reviews</Text>
+            </View>
+            {location.display_address.map((line) => (
+              <Text key={line}>
+                {line}
+              </Text>
+            ))}
           </View>
-          {location.display_address.map((line) => (
-            <Text key={line}>
-              {line}
-            </Text>
-          ))}
         </View>
-      </View>
-    </View>)
-    :(<Text>Loading ...</Text>)
+        {photos.map((img) => (
+          <Image key={img} source={{uri: img}} style={styles.detailsImage}/>
+        ))}
+      </View>)
+      :(<Text>Loading ...</Text>)}
+    </View>
   );
 };
 

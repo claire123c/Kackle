@@ -197,7 +197,11 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-end',
     marginLeft: 70,
-  }
+  },
+  detailsImage: {
+    width: 20,
+    height: 20,
+  },
 });
 
 
