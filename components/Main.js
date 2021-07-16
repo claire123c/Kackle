@@ -56,7 +56,6 @@ export default function Main({ businesses, getBusinesses, location }) {
     if (check.rows.length === 0) {
       try {
         const response = await dbQuery(query, data);
-        console.log('re', response);
       } catch (error) {
         throw error;
       }
